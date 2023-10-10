@@ -204,9 +204,11 @@ update: Update an instance based on the class name and ID by adding or updating 
 help: Get information about a specific command.
 quit or EOF: Exit the program.
 
-Authors
-Olutayo Victor, Ogunlade
-GitHub:[GitHub Profile](https://github.com/Olutayo0910)
-LinkedIn: [LinkedlIn Profile](www.linkedin.com/in/olutayo-victor-ogunlade-cpca-5644261a5)
-E-mail: [Email Address](olutayoogunlade2022@gmail.com)
-Adeoti Babatunde
+6. Authors
+
+	-Olutayo Victor, Ogunlade
+	-GitHub:[GitHub Profile](https://github.com/Olutayo0910)
+	-LinkedIn: [LinkedlIn Profile](www.linkedin.com/in/olutayo-victor-ogunlade-cpca-5644261a5)
+	-E-mail: [Email Address](olutayoogunlade2022@gmail.com)
+	
+	-Adeoti Babatunde
