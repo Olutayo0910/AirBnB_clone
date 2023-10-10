@@ -68,6 +68,7 @@ To get started, clone this repository and run the console.py file:
 ```bash
 $ git clone https://github.com/------/AirBnB_clone.git
 $ ./console.py
+```
 
 Usage
 Command-Line Methods
@@ -84,15 +85,21 @@ The following methods are available for use in the command-line interpreter:
 
 ---
 
-0x00. AirBnB Clone - The console
+##0x00. AirBnB Clone - The console
 
 ## Table of Contents
-1. Introduction
-2. Environment
-3. Installation
-4. Testing
-5. Usage
-6. Authors
+1. [Introduction](#1-introduction)
+2. [Environment](#2-environment)
+3. [Installation](#3-installation)
+   - [3.1 Execution](#31-execution)
+4. [Testing](#4-testing)
+   - [4.1 Documentation](#41-documentation)
+   - [4.2 Python Unit Tests](#42-python-unit-tests)
+   - [4.3 Running Tests](#43-running-tests)
+5. [Usage](#5-usage)
+   - [5.1 Getting Started](#51-getting-started)
+   - [5.2 Available Commands](#52-available-commands)
+6. [Authors](#6-authors)
 
 ### 1. Introduction
 The ALX-Holberton B&B is a team project aimed at building a clone of the AirBnB website. The console component serves as a command interpreter to manage object abstractions and how they are stored.
@@ -119,15 +126,18 @@ Clone the repository and change to the AirBnb directory, then run the following 
 
 ```bash
 ./console.py
+```
 
 3.1 Execution
 Interactive mode:
 
+```
 $ ./console.py
 (hbnb)
+```
 
 Non-interactive mode:
-
+```
 $ echo "help" | ./console.py
 (hbnb)
 
@@ -135,8 +145,9 @@ Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
 (hbnb)
+```
 
-Testing
+4. Testing
 All tests are defined in the tests folder.
 4.1 Documentation
 Modules: python3 -c 'print(__import__("my_module").__doc__)'
@@ -153,21 +164,22 @@ Or: python3 -m unittest tests/test_models/test_base.py
 
 4.3 Running Tests
 Run tests in interactive mode:
-
+```
 echo "python3 -m unittest discover tests" | bash
-
+```
 Run tests in non-interactive mode:
+```
 python3 -m unittest discover tests
-
+```
 Usage
 5.1 Getting Started
 Start the console in interactive mode:
-
+```
 $ ./console.py
 (hbnb)
-
+```
 Use the help command to see the available commands:
-
+```
 (hbnb) help
 
 Documented commands (type help <topic>):
@@ -175,11 +187,12 @@ Documented commands (type help <topic>):
 EOF  all  count  create  destroy  help  quit  show  update
 
 (hbnb)
-
+```
 Quit the console:
+```
 (hbnb) quit
 $
-
+```
 
 5.2 Available Commands
 create: Create a new instance of a given class.
@@ -193,7 +206,7 @@ quit or EOF: Exit the program.
 
 Authors
 Olutayo Victor, Ogunlade
-GitHub: https://github.com/Olutayo0910
-LinkedIn: www.linkedin.com/in/olutayo-victor-ogunlade-cpca-5644261a5
-E-mail: olutayoogunlade2022@gmail.com
+GitHub:[GitHub Profile](https://github.com/Olutayo0910)
+LinkedIn: [LinkedlIn Profile](www.linkedin.com/in/olutayo-victor-ogunlade-cpca-5644261a5)
+E-mail: [Email Address](olutayoogunlade2022@gmail.com)
 Adeoti Babatunde
