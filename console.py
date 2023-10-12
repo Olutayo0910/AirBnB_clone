@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """ The console of Console application"""
 import cmd
+import sys
 
 
-class hbnb(cmd.Cmd):
+class HBNBCommand(cmd.Cmd):
     """ subclass console of the cmd class """
     prompt = '(hbnb) '
 
-    def default(self, arg):
+    def emptyline(self):
         """ Overriding method to do nothing"""
         pass
 
@@ -17,7 +18,8 @@ class hbnb(cmd.Cmd):
 
     def do_EOF(self, *arg):
         """ For handling of EOF """
+        self.emptyline()
         return True
 
 if __name__ == "__main__":
-    hbnb().cmdloop()
+    HBNBCommand().cmdloop()
