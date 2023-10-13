@@ -45,8 +45,8 @@ class HBNBCommand(cmd.Cmd):
 
     def process_commands(self, commands):
         """Process a list of commands"""
-        for command in commands:
-            self.onecmd(command)
+        print(self.prompt)
+        self.cmdqueue.extend(commands)
 
     def do_create(self, arg):
         """Creates a new instance of BaseModel,
@@ -126,17 +126,9 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     hbnb_command = HBNBCommand()
-
     """Check if input is coming from a pipe (non-interactive mode)"""
     if not sys.stdin.isatty():
-        """Read commands from standard input"""
-if __name__ == '__main__':
-    hbnb_command = HBNBCommand()
-
-    # Check if input is coming from a pipe (non-interactive mode)
-    if not sys.stdin.isatty():
-        # Read commands from standard input
+        # Read commands from standard input"""
         commands = sys.stdin.read().splitlines()
         hbnb_command.process_commands(commands)
-    else:
-        hbnb_command.cmdloop()
+    hbnb_command.cmdloop()
