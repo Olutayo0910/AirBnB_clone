@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" The console of Console application"""
+"""This defines the HBnB console"""
 import cmd
 import sys
 import re
@@ -109,20 +109,20 @@ class HBNBCommand(cmd.Cmd):
                 elif len(argal) == 0:
                     obj_all.append(obj.__str__())
             print(obj_all)
+            
+    def do_quit(self, arg):
+        """Quit command to exit the program"""
+        return True
 
     def emptyline(self):
-        """ Overriding method to do nothing"""
+        """Do nothing upon receiving an empty line."""
         pass
 
-    def do_quit(self, *arg):
-        """ Command to quit the console """
+    def do_EOF(self, arg):
+        """End of file signal to exit the program"""
+        print("")
         return True
-
-    def do_EOF(self, *arg):
-        """ For handling of EOF """
-        self.emptyline()
-        return True
-
+      
 
 if __name__ == '__main__':
     hbnb_command = HBNBCommand()
@@ -130,6 +130,12 @@ if __name__ == '__main__':
     """Check if input is coming from a pipe (non-interactive mode)"""
     if not sys.stdin.isatty():
         """Read commands from standard input"""
+if __name__ == '__main__':
+    hbnb_command = HBNBCommand()
+
+    # Check if input is coming from a pipe (non-interactive mode)
+    if not sys.stdin.isatty():
+        # Read commands from standard input
         commands = sys.stdin.read().splitlines()
         hbnb_command.process_commands(commands)
     else:
