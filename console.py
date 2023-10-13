@@ -6,14 +6,6 @@ import re
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
-"""
-from models.user import User
-from models.state import State
-from models.city import City
-from models.place import Place
-from models.amenity import Amenity
-from models.review import Review
- """
 
 
 def parse(arg):
@@ -49,7 +41,6 @@ class HBNBCommand(cmd.Cmd):
         "City",
         "Place",
         "Amenity",
-
     }
 
     def process_commands(self, commands):
@@ -104,6 +95,21 @@ class HBNBCommand(cmd.Cmd):
             del obj_dict["{}.{}".format(argd[0], argd[1])]
             storage.save()
 
+    def do_all(self, arg):
+        """Prints all string representation of all instances
+        based or not on the class name"""
+        argal = parse(arg)
+        if len(argal) > 0 and argal[0] not in HBNBCommand.__classnames:
+            print("** class doesn't exist **")
+        else:
+            obj_all = []
+            for obj in storage.all().values():
+                if len(argal) > 0 and argal[0] == obj.__class__.__name__:
+                    obj_all.append(obj.__str__())
+                elif len(argal) == 0:
+                    obj_all.append(obj.__str__())
+            print(obj_all)
+            
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
@@ -116,8 +122,14 @@ class HBNBCommand(cmd.Cmd):
         """End of file signal to exit the program"""
         print("")
         return True
+      
 
+if __name__ == '__main__':
+    hbnb_command = HBNBCommand()
 
+    """Check if input is coming from a pipe (non-interactive mode)"""
+    if not sys.stdin.isatty():
+        """Read commands from standard input"""
 if __name__ == '__main__':
     hbnb_command = HBNBCommand()
 
