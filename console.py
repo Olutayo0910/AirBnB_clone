@@ -95,6 +95,21 @@ class HBNBCommand(cmd.Cmd):
             del obj_dict["{}.{}".format(argd[0], argd[1])]
             storage.save()
 
+    def do_all(self, arg):
+        """Prints all string representation of all instances
+        based or not on the class name"""
+        argal = parse(arg)
+        if len(argal) > 0 and argal[0] not in HBNBCommand.__classnames:
+            print("** class doesn't exist **")
+        else:
+            obj_all = []
+            for obj in storage.all().values():
+                if len(argal) > 0 and argal[0] == obj.__class__.__name__:
+                    obj_all.append(obj.__str__())
+                elif len(argal) == 0:
+                    obj_all.append(obj.__str__())
+            print(obj_all)
+
     def emptyline(self):
         """ Overriding method to do nothing"""
         pass
