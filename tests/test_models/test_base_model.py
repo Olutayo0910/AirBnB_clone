@@ -11,7 +11,7 @@ class TestBaseModel(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-	    pass
+        pass
 
     def test_init(self):
         """ Testing the initialization process """
@@ -43,8 +43,8 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(len(tb_dict), 4)
 
         # initializing with positional and keyword arguments
-        my_kw = {"my_name":"SBase", "color":"Green", "my_number": 45}
-        tb_model = BaseModel(5,["list"], False, **my_kw)
+        my_kw = {"my_name": "SBase", "color": "Green", "my_number": 45}
+        tb_model = BaseModel(5, ["list"], False, **my_kw)
         tb_dict = tb_model.to_dict()
         self.assertEqual(len(tb_dict), 4 + len(my_kw))
 

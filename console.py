@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                 elif len(argal) == 0:
                     obj_all.append(obj.__str__())
             print(obj_all)
-            
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
@@ -122,7 +122,7 @@ class HBNBCommand(cmd.Cmd):
         """End of file signal to exit the program"""
         print("")
         return True
-      
+
 
 if __name__ == '__main__':
     hbnb_command = HBNBCommand()
