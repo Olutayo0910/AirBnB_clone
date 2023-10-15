@@ -61,6 +61,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         else:
             print(eval(argc[0])().id)
+            storage.save()
 
     def do_show(self, arg):
         """Prints the string representation of an instance
@@ -77,6 +78,38 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             print(obj_dict["{}.{}".format(args[0], args[1])])
+
+    def do_update(self, arg):
+        """ Updates and instance based on the class name and id """
+        argu = parse(arg)
+        obj_dict = storage.all()
+        if len(argu) == 0:
+            print("** class name missing **")
+        elif argu[0] not in HBNBCommand.__classnames:
+            print("** class doesn't exist **")
+        elif len(argu) == 1:
+            print("** instance id missing **")
+        elif "{}.{}".format(argu[0], argu[1]) not in obj_dict:
+            print("** no instance found **")
+        elif len(argu) == 2:
+            print("** attribute name missing **")
+        elif len(argu) == 3:
+            print("** value missing **")
+        else:
+            key = "{}.{}".format(argu[0], argu[1])
+            arg_dict = obj_dict[key].to_dict()
+#           if argu[3][0] == "\"" and argu[3][-1] == "\"":
+#               argu[3] = argu[3].strip("\"")
+#            elif argu[3].isdecimal():
+#                argu[3] = int(argu[3])
+#            else:
+#                try:
+#                    argu[3] = float(argu[3])
+#                except ValueError:
+#                    return
+            arg_dict[argu[2]] = argu[3]
+            obj_ins = eval(argu[0])(**arg_dict)
+            obj_ins.save()
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id
