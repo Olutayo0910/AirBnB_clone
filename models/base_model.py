@@ -28,8 +28,7 @@ class BaseModel:
                     pass
                 else:
                     self.__dict__[key] = value
-        else:
-            models.storage.new(self)
+        models.storage.new(self)
 
     def __str__(self):
         """should print: [<class name>] (<self.id>) <self.__dict__>"""

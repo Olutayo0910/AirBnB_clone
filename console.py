@@ -98,18 +98,20 @@ class HBNBCommand(cmd.Cmd):
         else:
             key = "{}.{}".format(argu[0], argu[1])
             arg_dict = obj_dict[key].to_dict()
-#           if argu[3][0] == "\"" and argu[3][-1] == "\"":
-#               argu[3] = argu[3].strip("\"")
-#            elif argu[3].isdecimal():
-#                argu[3] = int(argu[3])
-#            else:
-#                try:
-#                    argu[3] = float(argu[3])
-#                except ValueError:
-#                    return
+           if argu[3][0] == "\"" and argu[3][-1] == "\"":
+               argu[3] = argu[3].strip("\"")
+            elif argu[3].isdecimal():
+                argu[3] = int(argu[3])
+            else:
+                try:
+                    argu[3] = float(argu[3])
+                except ValueError:
+                    return
             arg_dict[argu[2]] = argu[3]
+            print(argu[2],argu[3])
             obj_ins = eval(argu[0])(**arg_dict)
             obj_ins.save()
+            storage.save()
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class name and id
