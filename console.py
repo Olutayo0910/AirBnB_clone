@@ -151,9 +151,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    hbnb_command = HBNBCommand()
-    """Check if input is coming from a pipe (non-interactive mode)"""
-    if not sys.stdin.isatty():
-        commands = sys.stdin.readlines()
-        hbnb_command.process_commands(commands)
-    hbnb_command.cmdloop()
+    HBNBCommand().cmdloop()
