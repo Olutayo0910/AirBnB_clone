@@ -6,6 +6,7 @@ import re
 from shlex import split
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 
 
 def parse(arg):
@@ -98,15 +99,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             key = "{}.{}".format(argu[0], argu[1])
             arg_dict = obj_dict[key].to_dict()
-           if argu[3][0] == "\"" and argu[3][-1] == "\"":
-               argu[3] = argu[3].strip("\"")
-            elif argu[3].isdecimal():
-                argu[3] = int(argu[3])
-            else:
-                try:
-                    argu[3] = float(argu[3])
-                except ValueError:
-                    return
             arg_dict[argu[2]] = argu[3]
             print(argu[2],argu[3])
             obj_ins = eval(argu[0])(**arg_dict)
@@ -163,7 +155,6 @@ if __name__ == '__main__':
     hbnb_command = HBNBCommand()
     """Check if input is coming from a pipe (non-interactive mode)"""
     if not sys.stdin.isatty():
-        # Read commands from standard input"""
         commands = sys.stdin.read().splitlines()
         hbnb_command.process_commands(commands)
     hbnb_command.cmdloop()
