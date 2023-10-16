@@ -6,9 +6,12 @@ from models.base_model import BaseModel
 
 class User(BaseModel):
     """ Implementation for User class """
+    bkeys = ["id", "created_at", "updated_at"]
+
     def __init__(self, *args, **kwargs):
         """ Initializing new User class """
-        super().__init__(**kwargs)
+        super().__init__(**{key: kwargs.get(key) for key in User.bkeys
+                            if kwargs.get(key) is not None})
         self.email = ""
         self.password = ""
         self.first_name = ""
@@ -16,6 +19,5 @@ class User(BaseModel):
 
         if len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key == "email" or key == "password" or key == \
-                        "first_name" or key == "last_name":
+                if key not in User.bkeys:
                     self.__dict__[key] = value
