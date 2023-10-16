@@ -100,7 +100,6 @@ class HBNBCommand(cmd.Cmd):
             key = "{}.{}".format(argu[0], argu[1])
             arg_dict = obj_dict[key].to_dict()
             arg_dict[argu[2]] = argu[3]
-            print(argu[2],argu[3])
             obj_ins = eval(argu[0])(**arg_dict)
             obj_ins.save()
             storage.save()
