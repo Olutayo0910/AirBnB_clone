@@ -47,6 +47,7 @@ class HBNBCommand(cmd.Cmd):
         "City",
         "Place",
         "Amenity",
+        "Review"
     }
 
     def process_commands(self, commands):
