@@ -6,12 +6,13 @@ from models.base_model import BaseModel
 
 class User(BaseModel):
     """ Implementation for User class """
-    bkeys = ["id", "created_at", "updated_at"]
+    ukeys = ["email", "password", "first_name", "last_name"]
 
     def __init__(self, *args, **kwargs):
         """ Initializing new User class """
-        super().__init__(**{key: kwargs.get(key) for key in User.bkeys
-                            if kwargs.get(key) is not None})
+        super().__init__(**{key: kwargs.get(key) for key in kwargs.keys()
+                            if key not in User.ukeys
+                            and kwargs.get(key) is not None})
         self.email = ""
         self.password = ""
         self.first_name = ""
@@ -19,5 +20,5 @@ class User(BaseModel):
 
         if len(kwargs) != 0:
             for key, value in kwargs.items():
-                if key not in User.bkeys:
+                if key in User.ukeys:
                     self.__dict__[key] = value
