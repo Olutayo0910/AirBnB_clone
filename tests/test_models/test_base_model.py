@@ -66,6 +66,11 @@ class TestBaseModel(unittest.TestCase):
         id_set = set(id_list)
         self.assertEqual(len(id_list), len(id_set))
 
+    def save(self):
+        """Update updated_at with the current datetime."""
+        self.updated_at = datetime.today()
+        models.storage.save()
+
     def test_dates(self):
         """ Testing dates for awareness and consistency """
         tb_model = BaseModel()
