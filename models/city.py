@@ -3,7 +3,7 @@
 from models.base_model import BaseModel
 
 
-class Amenity(BaseModel):
+class City(BaseModel):
     """ Implementation for city class
     Attributes:
         state_id (str): The state id.
